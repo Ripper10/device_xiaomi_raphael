@@ -63,4 +63,8 @@
     <string name="dirac_preset_country">Кантри</string>
     <string name="dirac_preset_dance">Танцевальная</string>
     <string name="dirac_preset_metal">Металл</string>
+        <!-- Popup camera settings -->
+    <string name="popup_led_title">Светодиод камеры</string>
+    <string name="popup_led_summary">Включать диод при действие камеры</string>
+    <string name="popup_title">Эффекты фронтальной камеры</string>
 </resources>
