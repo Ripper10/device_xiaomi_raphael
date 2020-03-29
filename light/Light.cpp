@@ -22,11 +22,14 @@
 
 #include <fstream>
 
+#define BLUE_LED        "/sys/class/leds/blue/"
+#define GREEN_LED       "/sys/class/leds/green/"
 #define LCD_LED         "/sys/class/backlight/panel0-backlight/"
-#define WHITE_LED       "/sys/class/leds/white/"
 
-#define BREATH          "breath"
 #define BRIGHTNESS      "brightness"
+#define BREATH          "breath"
+#define DELAY_OFF       "delay_off"
+#define DELAY_ON        "delay_on"
 
 #define MAX_LED_BRIGHTNESS    255
 #define MAX_LCD_BRIGHTNESS    2047
@@ -85,32 +88,29 @@ static inline uint32_t getScaledBrightness(const LightState& state, uint32_t max
 
 static void handleBacklight(const LightState& state) {
     uint32_t brightness = getScaledBrightness(state, MAX_LCD_BRIGHTNESS);
-    if (brightness == 1){
-        brightness = 2;
-    }
     set(LCD_LED BRIGHTNESS, brightness);
 }
 
-static void handleNotification(const LightState& state) {
-    uint32_t whiteBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
+static void handleLED(const LightState& state) {
+    uint32_t brightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
 
-    /* Disable breathing or blinking */
-    set(WHITE_LED BREATH, 0);
-    set(WHITE_LED BRIGHTNESS, 0);
+    /* Reset the lights first */
+    set(BLUE_LED BREATH, 0);
+    set(BLUE_LED DELAY_OFF, 0);
+    set(BLUE_LED DELAY_ON, 0);
+    set(GREEN_LED BREATH, 0);
+    set(GREEN_LED DELAY_OFF, 0);
+    set(GREEN_LED DELAY_ON, 0);
 
-    if (!whiteBrightness) {
-        return;
-    }
-
-    switch (state.flashMode) {
-        case Flash::HARDWARE:
-        case Flash::TIMED:
-            /* Breathing */
-            set(WHITE_LED BREATH, 1);
-            break;
-        case Flash::NONE:
-        default:
-            set(WHITE_LED BRIGHTNESS, whiteBrightness);
+    if (state.flashMode == Flash::HARDWARE) {
+        set(BLUE_LED BREATH, 1);
+        set(GREEN_LED BREATH, 1);
+    } else if (state.flashMode == Flash::TIMED) {
+        set(BLUE_LED DELAY_OFF, state.flashOnMs);
+        set(GREEN_LED DELAY_OFF, state.flashOnMs);
+    } else {
+        set(BLUE_LED BRIGHTNESS, brightness);
+        set(GREEN_LED BRIGHTNESS, brightness);
     }
 }
 
@@ -131,9 +131,9 @@ static inline bool isStateEqual(const LightState& first, const LightState& secon
 
 /* Keep sorted in the order of importance. */
 static std::vector<LightBackend> backends = {
-    { Type::ATTENTION, handleNotification },
-    { Type::NOTIFICATIONS, handleNotification },
-    { Type::BATTERY, handleNotification },
+    { Type::ATTENTION, handleLED },
+    { Type::NOTIFICATIONS, handleLED },
+    { Type::BATTERY, handleLED },
     { Type::BACKLIGHT, handleBacklight },
 };
 
