@@ -20,7 +20,9 @@ package org.lineageos.settings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
+import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
@@ -36,14 +38,14 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
+    	SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+    	
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
         DiracUtils.initialize(context);
         DozeUtils.checkDozeService(context);
         PopupCameraUtils.startService(context);
 
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "1" : "0");
-        } catch(Exception e) {}
+        FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "1" : "0");
     }
 }
