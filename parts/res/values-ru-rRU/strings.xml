@@ -16,6 +16,13 @@
      limitations under the License.
 -->
 <resources>
+        <!-- DC dimming settings -->
+    <string name="dc_dimming_title">Поддавление мерцания</string>
+    <string name="dc_dimming_enable_title">Уменьшить ШИМ</string>
+    <string name="dc_dimming_enable_summary">Уменьшение ШИМ помогает сберечь ваши глаза от напряжение при низкой яркости (Возможно искажение цветопередачи)</string>
+    <string name="dc_dimming_enable_summary_not_supported">Ваше ядро не поддерживает поддавление мерцания</string>
+
+
     <!-- Dirac settings -->
     <string name="dirac_title">Улучшение звука Mi</string>
     <string name="dirac_summary">Улучшить качество звука</string>
