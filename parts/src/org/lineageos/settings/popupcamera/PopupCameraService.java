@@ -37,6 +37,7 @@ import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.os.Handler;
+import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -268,6 +269,18 @@ public class PopupCameraService extends Service {
         }
     }
 
+    private void onBootCompleted(){
+        try {
+            int status = mMotor.getMotorStatus();
+            if (status == MOTOR_STATUS_POPUP_OK ||
+                    status == MOTOR_STATUS_TAKEBACK_JAMMED) {
+                mCameraState = closeCameraState;
+                mMotor.takebackMotor(1);
+            }
+        } catch(RemoteException e) {
+        }
+    }
+
     private void forceTakeback(){
         mCameraState = closeCameraState;
         updateMotor();
@@ -275,8 +288,10 @@ public class PopupCameraService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "onStartCommand");
         if (DEBUG) Log.d(TAG, "Starting service");
         setProximitySensor(true);
+        onBootCompleted();
         return START_STICKY;
     }
 
@@ -295,6 +310,7 @@ public class PopupCameraService extends Service {
 
     private void registerReceiver() {
         IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_SHUTDOWN);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_CAMERA_STATUS_CHANGED);
         registerReceiver(mIntentReceiver, filter);
@@ -310,7 +326,7 @@ public class PopupCameraService extends Service {
                    dismissProximityObstructedDialog();
                }
                updateMotor();
-            } else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
+            } else if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_SHUTDOWN.equals(action)) {
                 if (mCameraState.equals(openCameraState)){
                     forceTakeback();
 
