@@ -421,6 +421,11 @@
          available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
 
+        <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
+    <integer-array name="config_keyboardTapVibePattern">
+        <item>12</item>
+    </integer-array>
+
     <!-- The default intensity level for haptic feedback. See
          Settings.System.HAPTIC_FEEDBACK_INTENSITY more details on the constant values and
          meanings. -->
