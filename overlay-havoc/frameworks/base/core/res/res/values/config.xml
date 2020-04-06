@@ -90,4 +90,7 @@
 
     <!-- Burn in protection -->
     <bool name="config_statusBarBurnInProtection">true</bool>
+
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_enableSmartPixels">false</bool>
 </resources>

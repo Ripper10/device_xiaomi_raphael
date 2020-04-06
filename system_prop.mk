@@ -46,6 +46,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.fod.modified.dc_status=false \
     sys.displayfeature.hbm.enable=true
 
+# Scrolling fluidity
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.scrollingcache=3
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_backpressure=1 \
@@ -158,13 +162,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.ssr.restart_level=ALL_ENABLE
 
+# Vendor
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.va_aosp.support=1
+
 # USB debugging
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0 \
     ro.secure=0 \
     ro.debuggable=1
-
-# Vendor
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.va_aosp.support=1
