@@ -16,6 +16,9 @@ on post-fs
     mount none /system/etc/goodix/caliParamsInfo.so /mnt/vendor/persist/goodix/caliParamsInfo.so bind
 
 on property:vendor.post_boot.parsed=1
+    # Enable powersaving
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    
     # Disable sched stats
     write /proc/sys/kernel/sched_schedstats 0
 
