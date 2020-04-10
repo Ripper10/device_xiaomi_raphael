@@ -39,7 +39,7 @@
     <string name="statusbar_summary">Часы, логотип, значки в строке состояния</string>
     <string name="battery_title">Энергосбережение</string>
     <string name="battery_saving_summary">Умные пиксели, отложенные действия</string>
-    <string name="ambient_display_custom_title">Индикация событий</string>
+    <string name="ambient_display_custom_title">Активный дисплей</string>
     <string name="ambient_display_custom_summary">Всегда включенный экран, индикатор трека, жесты</string>
     <string name="screen_title">Экран</string>
     <string name="screen_summary">Скругленные углы, масштабирование старых приложений</string>
@@ -667,4 +667,23 @@
     <string name="back_arrow_gesture_summary">Показывать анимацию жеста назад</string>
     <string name="back_gesture_haptic_title">Виброотклик</string>
     <string name="back_gesture_haptic_summary">Вибрировать при жесте назад</string>
+
+        <!-- Adaptive Playback -->
+    <string name="media_title">Медиа</string>
+    <string name="adaptive_playback_title">Адаптивное воспроизведение</string>
+    <string name="adaptive_playback_summary">Ставить музыку на паузу, когда вы выключаете громкость, и запускать, когда вы повышаете громкость обратно в определенном промежутки времени</string>
+    <string name="adaptive_playback_timeout_title">Время ожидания запуска</string>
+    <string name="adaptive_playback_timeout_30_secs">30 секунд</string>
+    <string name="adaptive_playback_timeout_1_min">1 минута</string>
+    <string name="adaptive_playback_timeout_2_min">2 минуты</string>
+    <string name="adaptive_playback_timeout_5_min">5 минут</string>
+    <string name="adaptive_playback_timeout_10_min">10 минут</string>
+
+        <!-- FOD animation -->
+    <string name="fod_recognizing_animation_title">Анимация отпечатка</string>
+    <string name="fod_recognizing_animation_summary">Показывать анимацию когда используете отпечаток пальнца</string>
+
+        <!-- Media heads up -->
+    <string name="show_media_heads_up_title">Всплывающие уведомления медиа</string>
+    <string name="show_media_heads_up_summary">Показывать всплывающие уведомления с информацией о текущем треке</string>
 </resources>

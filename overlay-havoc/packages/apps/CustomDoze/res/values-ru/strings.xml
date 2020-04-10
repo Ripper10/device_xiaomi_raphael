@@ -44,6 +44,6 @@
     <string name="doze_double_tap_title">Двойное касание</string>
     <string name="doze_double_tap_summary">Дважды коснитесь телефона для проверки времени, значков уведомлений и другой информации</string>
     <!-- Brightness -->
-    <string name="ambient_pulse_brightness_title">Активный экран</string>
+    <string name="ambient_pulse_brightness_title">Активный дисплей</string>
     <string name="ambient_doze_brightness_title">Дисплей всегда включен</string>
 </resources>
