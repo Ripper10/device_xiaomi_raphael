@@ -671,7 +671,7 @@
         <!-- Adaptive Playback -->
     <string name="media_title">Медиа</string>
     <string name="adaptive_playback_title">Адаптивное воспроизведение</string>
-    <string name="adaptive_playback_summary">Ставить музыку на паузу, когда вы выключаете громкость, и запускать, когда вы повышаете громкость обратно в определенном промежутки времени</string>
+    <string name="adaptive_playback_summary">Ставить музыку на паузу, когда вы выключаете громкость и запускать, когда вы повышаете громкость обратно в определенном интервале времени</string>
     <string name="adaptive_playback_timeout_title">Время ожидания запуска</string>
     <string name="adaptive_playback_timeout_30_secs">30 секунд</string>
     <string name="adaptive_playback_timeout_1_min">1 минута</string>
