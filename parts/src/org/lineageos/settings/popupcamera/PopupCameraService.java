@@ -329,10 +329,6 @@ public class PopupCameraService extends Service {
             } else if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_SHUTDOWN.equals(action)) {
                 if (mCameraState.equals(openCameraState)){
                     forceTakeback();
-
-            if (android.content.Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
-               mCameraState = intent.getExtras().getString(android.content.Intent.EXTRA_CAMERA_STATE);
-               updateMotor(mCameraState);
             } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
                 try {
                     IDisplayFeature mDisplayFeature = IDisplayFeature.getService();
@@ -342,7 +338,8 @@ public class PopupCameraService extends Service {
                 }
             }
         }
-    };
+    }
+};
 
     private void updateMotor() {
         final Runnable r = new Runnable() {
