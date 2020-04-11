@@ -76,10 +76,6 @@
             </intent-filter>
         </service>
 
-        <service android:name=".fod.FodService"
-                 android:permission="FodService">
-        </service>
-
         <activity
             android:name=".doze.DozeSettingsActivity"
             android:label="@string/ambient_display_title"
