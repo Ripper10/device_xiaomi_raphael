@@ -70,11 +70,11 @@
     <string name="popup_camera_tip">Внимание!</string>
     <string name="popup_camera_takeback_falied_times_calibrate">Не получилось закрыть камеру после нескольких попыток... Пытаюсь калибровать камеру</string>
     <string name="popup_camera_popup_falied_times_calibrate">Не получилось открыть камеру после нескольких попыток... Пытаюсь калибровать камеру</string>
-    <string name="popup_camera_calibrate_running">Фронтальная камеру не может быть использована во время калибровки!</string>
+    <string name="popup_camera_calibrate_running">Фронтальная камера не может быть использована во время калибровки!</string>
     <string name="popup_camera_calibrate_now">Калибровка</string>
     <string name="popup_camera_calibrate_failed">Не получилось откалибровать фронтальную камеру...</string>
     <string name="popup_camera_calibrate_success">Фронтальная камера откалибрована успешно!</string>
-    <string name="stop_operate_camera_frequently">Вы открываете фронтальную камеру сильно часто</string>
+    <string name="stop_operate_camera_frequently">Вы открываете фронтальную камеру очень часто</string>
     <string name="takeback_camera_front_failed">Не получилось закрыть фронтальную камеру, попробуйте ещё раз.</string>
     <string name="popup_camera_front_failed">Не получилось открыть фронтальную камеру, попробуйте ещё раз.</string>
     <string name="popup_camera_proximity_obstructed">Уберите руку от датчика приблежения для запуска камеры!</string>
