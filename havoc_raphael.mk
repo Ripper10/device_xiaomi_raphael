@@ -8,7 +8,7 @@ $(call inherit-product, device/xiaomi/raphael/device.mk)
 
 WITH_GAPPS := true
 TARGET_GAPPS_ARCH := arm64
-TARGET_INCLUDE_STOCK_ARCORE := false
+TARGET_INCLUDE_STOCK_ARCORE := true
 TARGET_SUPPORTS_GOOGLE_RECORDER := false
 
 # Inherit some common Havoc stuff.
