@@ -42,4 +42,7 @@
     <dimen name="status_bar_battery_icon_width">7.2dp</dimen>
     <!-- Padding before battery level text in status bar, QS, and Keyguard -->
     <dimen name="battery_level_padding_start">6dp</dimen>
+
+    <!-- Network traffic monitor -->
+    <dimen name="net_traffic_multi_text_size">13dp</dimen>
 </resources>
